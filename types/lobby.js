@@ -114,7 +114,7 @@ class Lobby {
 
         if (this.#rawData.length > 0)
         {
-            buff = Buffer.concat(buff, this.#rawData);
+            buff = Buffer.concat([buff, this.#rawData]);
         }
 
         return buff;
