@@ -51,6 +51,7 @@ class Server {
         });
     }
 
+    /// ADDR is int
     getLobby(addr, port)
     {
         if (this.#lobbyMap[addr] && this.#lobbyMap[addr][port]) {

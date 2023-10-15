@@ -12,13 +12,14 @@ module.exports = function(data, recvinfo, server)
     // for later use
     const lightcastVersion = buff.readInt8();
     
-    const address = int2ip(buff.readUInt32());
+    const intIP = buff.readUInt32();
+    const address = int2ip(intIP);
     const port = buff.readUInt16();
     const gameName = buff.readFixedLengthString(GAME_NAME_LENGTH)
     
     logger.debug(`Client [${recvinfo.address}] asked to be punched by lobby ${address}:${port}`);
 
-    const lobby = server.getLobby(address, port);
+    const lobby = server.getLobby(intIP, port);
     if (lobby)
     {
         if (lobby.getGameName() == gameName)
