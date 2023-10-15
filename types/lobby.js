@@ -36,6 +36,7 @@ class Lobby {
     getAddress = () => this.#ipAddress;
     getPort = () => this.#port;
     isDeletionRequest = () => this.#net == 0;
+    getGameName = () => this.#game;
 
     lastHeardOf = Date.now();
 

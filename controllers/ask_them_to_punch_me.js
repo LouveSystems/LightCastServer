@@ -16,7 +16,7 @@ module.exports = function(data, recvinfo, server)
     logger.debug(`Client [${recvinfo.address}] asked to be punched by lobby ${address}:${port}`);
 
     const lobby = server.getLobby(address, port);
-    if (lobby.gameName == gameName)
+    if (lobby.getGameName() == gameName)
     {
         const header = Buffer.alloc(1+6);
         header.writeInt8(protocol.PUNCH_THEM);
