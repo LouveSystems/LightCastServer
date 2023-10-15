@@ -8,6 +8,9 @@ const { GAME_NAME_LENGTH } = require('../types/consts');
 module.exports = function(data, recvinfo, server)
 {
     const buff = new BuffReader(data);
+
+    // for later use
+    const lightcastVersion = buff.readInt8();
     
     const address = int2ip(buff.readUInt32());
     const port = buff.readUInt16();
