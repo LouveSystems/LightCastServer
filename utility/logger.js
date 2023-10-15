@@ -2,7 +2,7 @@
 const winston = require('winston');
 
 const logger = winston.createLogger({
-  level: 'info',
+  level: process.env.LOGGING_LEVEL == undefined ? "info" : process.env.LOGGING_LEVEL,
   format: winston.format.cli(),
   transports: [
     //
