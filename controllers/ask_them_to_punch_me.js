@@ -19,18 +19,25 @@ module.exports = function(data, recvinfo, server)
     logger.debug(`Client [${recvinfo.address}] asked to be punched by lobby ${address}:${port}`);
 
     const lobby = server.getLobby(address, port);
-    if (lobby && lobby.getGameName() == gameName)
+    if (lobby)
     {
-        const header = Buffer.alloc(1+6);
-        header.writeInt8(protocol.PUNCH_THEM);
-        header.writeInt32LE(ip2int(recvinfo.address), 1);
-        header.writeInt16LE(recvinfo.port, 4 + 1);
-        
-        server.sendTo(Buffer.concat([ header, lobbies[i].serialize()]), recvinfo);
-        logger.info(`Asked ${address}:${port} on ${gameName} to punch ${recvinfo.address}`);
+        if (lobby.getGameName() == gameName)
+        {
+            const header = Buffer.alloc(1+6);
+            header.writeInt8(protocol.PUNCH_THEM);
+            header.writeInt32LE(ip2int(recvinfo.address), 1);
+            header.writeInt16LE(recvinfo.port, 4 + 1);
+            
+            server.sendTo(Buffer.concat([ header, lobbies[i].serialize()]), recvinfo);
+            logger.info(`Asked ${address}:${port} on ${gameName} to punch ${recvinfo.address}`);
+        }
+        else
+        {
+            logger.warn(`Could not find the lobby (${address}:${port} - wrong game name, expected ${lobby.getGameName()} and got ${gameName}) that ${recvinfo.address} is talking about.`)
+        }
     }
     else
     {
-        logger.warn(`Could not find the lobby (${address}:${port} on ${gameName}) that ${recvinfo.address} is talking about.`)
+        logger.warn(`Could not find the lobby (${address}:${port} that ${recvinfo.address} is talking about.`)
     }
 }
