@@ -26,8 +26,8 @@ module.exports = function(data, recvinfo, server)
         {
             const header = Buffer.alloc(1+6);
             header.writeInt8(protocol.PUNCH_THEM);
-            header.writeInt32LE(ip2int(recvinfo.address), 1);
-            header.writeInt16LE(recvinfo.port, 4 + 1);
+            header.writeUInt32LE(ip2int(recvinfo.address), 1);
+            header.writeUInt16LE(recvinfo.port, 4 + 1);
             
             server.sendTo(Buffer.concat([ header, lobbies[i].serialize()]), recvinfo);
             logger.info(`Asked ${address}:${port} on ${gameName} to punch ${recvinfo.address}`);
