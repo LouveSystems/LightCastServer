@@ -13,6 +13,8 @@ CONTROLLERS[protocol.SUBMIT] = require("./controllers/submit");
 
 logger.info(`Initializing lightcast version ${VERSION}...`);
 
+logger.info(`\n\n┓ •  ┓  ┏┓    \n┃ ┓┏┓┣┓╋┃ ┏┓┏╋\n┗┛┗┗┫┛┗┗┗┛┗┻┛┗\n    ┛         \n`);
+
 // Main()
 {
     // CreateServer()

@@ -4,7 +4,7 @@ module.exports = {
     
     SUBMIT: 3,
 
-    PUNCH_ME: 4,
+    ASK_THEM_TO_PUNCH_ME: 4,
     PUNCH_THEM: 5,
     
     // INFO: 6,  Unused on server

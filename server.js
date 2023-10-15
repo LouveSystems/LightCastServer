@@ -51,6 +51,13 @@ class Server {
         });
     }
 
+    getLobby(addr, port)
+    {
+        if (this.#lobbyMap[addr] && this.#lobbyMap[addr][port]) {
+            return this.#lobbyMap[addr][port];
+        }
+    }
+
     addLobby(lobby) {
         const addr = lobby.getAddress();
         const port = lobby.getPort();

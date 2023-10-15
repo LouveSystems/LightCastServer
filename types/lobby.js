@@ -2,10 +2,7 @@
 const { ip2int, int2ip } = require('../utility/ipint');
 const BuffReader = require('./buffreader');
 const BuffWriter = require('./buffwriter');
-
-const GAME_NAME_LENGTH = 32;
-const MAP_NAME_LENGTH = 16;
-const LOBBY_NAME_LENGTH = 48;
+const { GAME_NAME_LENGTH, LOBBY_NAME_LENGTH, MAP_NAME_LENGTH } = require('./consts');
 
 const MINIMUM_LOBBY_SUBMISSION_LENGTH = 0
     + 1 // Net type 
