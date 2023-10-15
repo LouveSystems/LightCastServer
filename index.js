@@ -10,6 +10,7 @@ const PORT = 4888;
 const CONTROLLERS = {};
 CONTROLLERS[protocol.QUERY] = require("./controllers/query");
 CONTROLLERS[protocol.SUBMIT] = require("./controllers/submit");
+CONTROLLERS[protocol.ASK_THEM_TO_PUNCH_ME] = require("./controllers/ask_them_to_punch_me");
 
 logger.info(`Initializing lightcast version ${VERSION}...`);
 

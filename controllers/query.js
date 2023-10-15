@@ -19,5 +19,5 @@ module.exports = function(data, recvinfo, server)
         server.sendTo(Buffer.concat([ header, lobbies[i].serialize()]), recvinfo);
     }
 
-    logger.debug(`Sent ${lobbies.length} lobbies to client ${recvinfo.address} for game ${query.game}`);
+    logger.info(`Sent ${lobbies.length} lobbies to client ${recvinfo.address} for game ${query.game}`);
 }
