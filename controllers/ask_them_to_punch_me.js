@@ -29,7 +29,7 @@ module.exports = function(data, recvinfo, server)
             header.writeUInt32LE(ip2int(recvinfo.address), 1);
             header.writeUInt16LE(recvinfo.port, 4 + 1);
             
-            server.sendTo(Buffer.concat([ header, lobbies[i].serialize()]), recvinfo);
+            server.sendTo(Buffer.concat([ header, lobby.serialize()]), recvinfo);
             logger.info(`Asked ${address}:${port} on ${gameName} to punch ${recvinfo.address}`);
         }
         else
